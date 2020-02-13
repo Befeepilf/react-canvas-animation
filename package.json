@@ -1,0 +1,19 @@
+{
+  "name": "react-canvas-animation",
+  "version": "1.0.0",
+  "description": "A p5js inspired library for creating canvas animations in react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Befeepilf/react-canvas-animation.git"
+  },
+  "author": "Befeepilf <befeepilf@protonmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Befeepilf/react-canvas-animation/issues"
+  },
+  "homepage": "https://gitlab.com/Befeepilf/react-canvas-animation#readme"
+}
