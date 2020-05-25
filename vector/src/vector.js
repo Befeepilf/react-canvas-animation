@@ -1,42 +1,7 @@
-import {line} from './draw.js';
+import {sin, cos, pow, sqrt} from '@react-canvas-animation/math';
+import {line} from '@react-canvas-animation/draw';
 
-function sin(a) {
-  return Math.sin(a);
-}
-
-function arcsin(a) {
-  return Math.asin(a);
-}
-
-function cos(a) {
-  return Math.cos(a);
-}
-
-function arccos(a) {
-  return Math.arccos(a);
-}
-
-function tan(a) {
-  return Math.tan(a);
-}
-
-function arctan(a) {
-  return Math.atan(a);
-}
-
-function sqrt(n) {
-  return Math.sqrt(n);
-}
-
-function quad(b) {
-  return Math.pow(b, 2);
-}
-
-function pow(b,e) {
-  return Math.pow(b,e);
-}
-
-class Vector {
+export default class Vector {
   constructor(x,y) {
     this.x = x;
     this.y = y;
@@ -91,16 +56,3 @@ class Vector {
     return new Vector(this.x, this.y);
   }
 }
-
-module.exports = {
-  sin,
-  arcsin,
-  cos,
-  arccos,
-  tan,
-  arctan,
-  quad,
-  sqrt,
-  pow,
-  Vector
-};

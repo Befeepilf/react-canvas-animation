@@ -1,0 +1,31 @@
+{
+  "name": "@react-canvas-animation/core",
+  "version": "0.0.6",
+  "description": "A p5js inspired library for creating canvas animations in react",
+  "private": false,
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "babel src -d dist --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Befeepilf/react-canvas-animation.git"
+  },
+  "author": "Befeepilf <befeepilf@protonmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Befeepilf/react-canvas-animation/issues"
+  },
+  "homepage": "https://github.com/Befeepilf/react-canvas-animation#readme",
+  "dependencies": {
+    "@react-canvas-animation/draw": "latest",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-preset-minify": "^0.5.1"
+  }
+}

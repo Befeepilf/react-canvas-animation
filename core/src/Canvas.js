@@ -1,7 +1,7 @@
 import React from 'react';
-import {init} from './draw.js';
+import {init} from '@react-canvas-animation/draw';
 
-function Canvas({isPaused, sketch}) {
+export default function Canvas({isPaused, sketch}) {
   const [{width, height}, setCanvasSize] = React.useState({width: 0, height: 0});
   const [ctx, setCtx] = React.useState();
   const canvas = React.createRef();
@@ -45,5 +45,3 @@ function Canvas({isPaused, sketch}) {
 
   return <canvas ref={canvas} width={width} height={height} style={{border: '1px solid #000'}}></canvas>;
 }
-
-export default Canvas;

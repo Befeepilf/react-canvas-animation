@@ -1,24 +1,26 @@
 {
-  "name": "react-canvas-animation",
-  "version": "1.0.0",
-  "private": true,
-  "main": "gulpfile.js",
+  "name": "@react-canvas-animation/math",
+  "version": "0.0.6",
+  "description": "Math functions for the react-canvas.animation package.",
+  "private": false,
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "babel src -d dist --copy-files"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Befeepilf/react-canvas-animation.git"
   },
-  "author": "Befeepilf",
+  "author": "Befeepilf <befeepilf@protonmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Befeepilf/react-canvas-animation/issues"
   },
   "homepage": "https://github.com/Befeepilf/react-canvas-animation#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean": "^0.4.0"
+    "babel-preset-minify": "^0.5.1"
   }
 }
