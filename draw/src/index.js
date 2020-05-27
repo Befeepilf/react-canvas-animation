@@ -1,58 +1,106 @@
-let ctx, width, height;
+import Canvas from '@react-canvas-animation/core';
 
-function argsToColor(r,g,b) {
+/*
+  converts arguments to CSS compatible color values
+  accepts either 1 or 3 arguments
+  for 1 argument:
+    if r is a string return r
+    if r is a number treat g & b values as being equal to r
+  for 3 arguments: threat them as red, green & blue values
+*/
+function argsToColor(r, g, b) {
   if(r !== undefined && g === undefined && b == undefined) {
     g = b = r;
   }
   return typeof r === 'string' ? r : `rgba(${r},${g},${b})`;
 }
 
-function fill(r,g,b) {
-  ctx.fillStyle = argsToColor(r,g,b);
+/*
+  Adds a function to the prototype of Canvas
+  To keep track of which custom functions has been added to its prototype add the function's name to an array in this prototype
+  We need to keep track of added functions because inside Canvas they are lifted to the instance's this and
+    Canvas is a React component so we only want to lift these custom functions and don't mess around with React specific functions
+*/
+function addToProto(name, func) {
+  Canvas.prototype[name] = func;
+
+  if(!Canvas.prototype.customFunctions) {
+    Canvas.prototype.customFunctions = [];
+  }
+  Canvas.prototype.customFunctions.push(name);
 }
 
-export {fill};
 
-export const init = (_ctx, _width, _height) => {
-  ctx = _ctx;
-  width = _width;
-  height = _height;
-}
+addToProto("fill", function (r,g,b) {
+  this.ctx.fillStyle = argsToColor(r,g,b);
+});
 
-export const bg = (r,g,b) => {
-  fill(r,g,b);
-  ctx.fillRect(0, 0, width, height);
-}
+addToProto("bg", function(r,g,b) {
+  this.fill(r,g,b);
+  this.ctx.fillRect(0, 0, this.width, this.height);
+});
 
-export const stroke = (r,g,b) => ctx.strokeStyle = argsToColor(r,g,b)
+addToProto("stroke", function(r,g,b) {
+  this.ctx.strokeStyle = argsToColor(r,g,b);
+});
 
-export const strokeWeight = w => ctx.lineWidth = w
+addToProto("strokeWeight", function(w) {
+  this.ctx.lineWidth = w
+});
 
-export const translate = (x,y) => ctx.translate(x,y)
+addToProto("translate", function(x,y) {
+  this.ctx.translate(x,y)
+});
 
-export const rotate = rad => ctx.rotate(rad)
+addToProto("rotate", function(rad) {
+  this.ctx.rotate(rad);
+});
 
-export const scale = (x,y) => ctx.scale(x,y)
+addToProto("scale", function(x,y) {
+  this.ctx.scale(x,y);
+});
 
-export const line = (x1,y1, x2,y2) => {
-  ctx.beginPath();
-  ctx.moveTo(x1,y1);
-  ctx.lineTo(x2,y2);
-  ctx.stroke();
-}
+addToProto("line", function(x1,y1, x2,y2) {
+  this.ctx.beginPath();
+  this.ctx.moveTo(x1,y1);
+  this.ctx.lineTo(x2,y2);
+  this.ctx.stroke();
+});
 
-export const rect = (x,y,w,h) => ctx.fillRect(x,y,w,h)
+addToProto("rect", function(x,y,w,h) {
+  this.ctx.fillRect(x,y,w,h);
+});
 
-export const triangle = (x1,y1, x2,y2, x3,y3) => {
-  ctx.beginPath();
-  ctx.moveTo(x1,y1);
-  ctx.lineTo(x2,y2);
-  ctx.lineTo(x3,y3);
-  ctx.fill();
-}
+addToProto("triangle", function(x1, y1, x2, y2, x3, y3) {
+  this.ctx.beginPath();
 
-export const circle = (x,y,r) => {
-  ctx.beginPath();
-  ctx.arc(x, y, r, 0, 2*Math.PI);
-  ctx.fill();
-}
+  // if only 3 arguments are present
+  if(y2 === undefined && x3 === undefined && y3 === undefined) {
+    this.ctx.moveTo(x1, y1);
+    this.ctx.lineTo(x1 + x2 / 2, y1); // right corner
+    this.ctx.lineTo(x1, y1 - x2 * Math.sqrt(3) / 2); // top corner
+    this.ctx.lineTo(x1 - x2 / 2, y1); // left corner
+  }
+  // if all arguments are present
+  else {
+    this.ctx.moveTo(x1, y1);
+    this.ctx.lineTo(x2, y2);
+    this.ctx.lineTo(x3, y3);
+  }
+  this.ctx.fill();
+});
+
+addToProto("circle", function(x,y,r) {
+  this.ctx.beginPath();
+  this.ctx.arc(x, y, r, 0, 2 * Math.PI);
+  this.ctx.fill();
+});
+
+addToProto("drawVector", function(v) {
+  this.line(0, 0, v.x, v.y);
+  this.ctx.save();
+  this.translate(v.x, v.y);
+  this.rotate(-v.angle() + Math.PI / 2);
+  this.triangle(0, 0, 20);
+  this.ctx.restore();
+});

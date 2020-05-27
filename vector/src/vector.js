@@ -1,8 +1,7 @@
-import {sin, cos, pow, sqrt} from '@react-canvas-animation/math';
-import {line} from '@react-canvas-animation/draw';
+import {sin, cos, acos, pow, sqrt} from '@react-canvas-animation/math';
 
 export default class Vector {
-  constructor(x,y) {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
   }
@@ -40,16 +39,20 @@ export default class Vector {
     return this;
   }
 
+  angle() {
+    let a = acos(this.x / this.mag());
+    if(this.y > 0) {
+      a = 2 * Math.PI - a;
+    }
+    return a;
+  }
+
   rotate(a) {
     const oldX = this.x;
     const oldY = this.y;
     this.x = oldX * cos(a) - oldY * sin(a);
     this.y = oldX * sin(a) + oldY * cos(a);
     return this;
-  }
-
-  draw() {
-    line(0, 0, this.x, this.y);
   }
 
   copy() {
