@@ -1,1 +1,1 @@
-export {default} from './Canvas.js';
+export {default} from './Canvas.jsx';

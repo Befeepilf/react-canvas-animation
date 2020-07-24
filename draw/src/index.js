@@ -12,7 +12,7 @@ function argsToColor(r, g, b) {
   if(r !== undefined && g === undefined && b == undefined) {
     g = b = r;
   }
-  return typeof r === 'string' ? r : `rgba(${r},${g},${b})`;
+  return typeof r === 'string' ? r : `rgb(${r},${g},${b})`;
 }
 
 /*
@@ -31,47 +31,47 @@ function addToProto(name, func) {
 }
 
 
-addToProto("fill", function (r,g,b) {
+addToProto('fill', function (r,g,b) {
   this.ctx.fillStyle = argsToColor(r,g,b);
 });
 
-addToProto("bg", function(r,g,b) {
+addToProto('bg', function(r,g,b) {
   this.fill(r,g,b);
   this.ctx.fillRect(0, 0, this.width, this.height);
 });
 
-addToProto("stroke", function(r,g,b) {
+addToProto('stroke', function(r,g,b) {
   this.ctx.strokeStyle = argsToColor(r,g,b);
 });
 
-addToProto("strokeWeight", function(w) {
+addToProto('strokeWeight', function(w) {
   this.ctx.lineWidth = w
 });
 
-addToProto("translate", function(x,y) {
+addToProto('translate', function(x,y) {
   this.ctx.translate(x,y)
 });
 
-addToProto("rotate", function(rad) {
+addToProto('rotate', function(rad) {
   this.ctx.rotate(rad);
 });
 
-addToProto("scale", function(x,y) {
+addToProto('scale', function(x,y) {
   this.ctx.scale(x,y);
 });
 
-addToProto("line", function(x1,y1, x2,y2) {
+addToProto('line', function(x1,y1, x2,y2) {
   this.ctx.beginPath();
   this.ctx.moveTo(x1,y1);
   this.ctx.lineTo(x2,y2);
   this.ctx.stroke();
 });
 
-addToProto("rect", function(x,y,w,h) {
+addToProto('rect', function(x,y,w,h) {
   this.ctx.fillRect(x,y,w,h);
 });
 
-addToProto("triangle", function(x1, y1, x2, y2, x3, y3) {
+addToProto('triangle', function(x1, y1, x2, y2, x3, y3) {
   this.ctx.beginPath();
 
   // if only 3 arguments are present
@@ -90,13 +90,13 @@ addToProto("triangle", function(x1, y1, x2, y2, x3, y3) {
   this.ctx.fill();
 });
 
-addToProto("circle", function(x,y,r) {
+addToProto('circle', function(x,y,r) {
   this.ctx.beginPath();
   this.ctx.arc(x, y, r, 0, 2 * Math.PI);
   this.ctx.fill();
 });
 
-addToProto("drawVector", function(v) {
+addToProto('drawVector', function(v) {
   this.line(0, 0, v.x, v.y);
   this.ctx.save();
   this.translate(v.x, v.y);

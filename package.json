@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "main": "gulpfile.js",
+  "scripts": {
+    "test": "jest",
+    "report-coverage": "cc-test-reporter format-coverage && cc-test-reporter after-build -r 398e5612cf31266c2a74f3c9c12aba91510b26bb410eee3f49cc5f44db2a05d6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Befeepilf/react-canvas-animation.git"
@@ -14,8 +18,18 @@
   },
   "homepage": "https://github.com/Befeepilf/react-canvas-animation#readme",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@testing-library/react": "^10.4.7",
+    "babel-jest": "^26.1.0",
+    "canvas": "^2.6.1",
     "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0"
+    "gulp-clean": "^0.4.0",
+    "jest": "^26.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "dependencies": {}
 }

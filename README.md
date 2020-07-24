@@ -1,5 +1,7 @@
 # React Canvas Animation
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/e95739067748d8f0ab75/maintainability)](https://codeclimate.com/github/Befeepilf/react-canvas-animation/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e95739067748d8f0ab75/test_coverage)](https://codeclimate.com/github/Befeepilf/react-canvas-animation/test_coverage)
+
 ## Package structure
 
 - **@react-canvas-animation/core**
@@ -52,7 +54,7 @@ function App() {
 | height  | number    | window.innerHeight | Height of the canvas in pixel  |
 
 #### The sketch function
-This function takes one argument which is a reference to the context of the corresponding Canvas component (not to be confused with the context of the canvas *element*). The context contains properties of the canvas such as its width and height as well as the drawing methods if `@react-canvas-animation/draw` was imported. Since the sketch function shares the same context with the Canvas component, all these methods and properties are also accessible via `this`.
+This function takes one argument which is a reference to the context of the corresponding Canvas component (not to be confused with the context of the canvas *element*). The context contains properties of the canvas such as its width and height as well as drawing methods if `@react-canvas-animation/draw` was imported. Since the sketch function shares the same context with the Canvas component (given that it is *not* an arrow function), all these methods and properties are also accessible via `this`.
 
 ##### Available canvas properties:
 
