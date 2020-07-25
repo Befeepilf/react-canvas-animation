@@ -4,8 +4,8 @@
   "private": true,
   "main": "gulpfile.js",
   "scripts": {
-    "test": "jest",
-    "report-coverage": "cc-test-reporter format-coverage && cc-test-reporter after-build -r 398e5612cf31266c2a74f3c9c12aba91510b26bb410eee3f49cc5f44db2a05d6"
+    "test": "./node_modules/.bin/jest",
+    "build": "./node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",

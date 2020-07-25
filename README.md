@@ -1,6 +1,6 @@
 # React Canvas Animation
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/e95739067748d8f0ab75/maintainability)](https://codeclimate.com/github/Befeepilf/react-canvas-animation/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e95739067748d8f0ab75/test_coverage)](https://codeclimate.com/github/Befeepilf/react-canvas-animation/test_coverage)
+[![Build Status](https://travis-ci.org/Befeepilf/react-canvas-animation.svg?branch=master)](https://travis-ci.org/Befeepilf/react-canvas-animation) [![Maintainability](https://api.codeclimate.com/v1/badges/e95739067748d8f0ab75/maintainability)](https://codeclimate.com/github/Befeepilf/react-canvas-animation/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e95739067748d8f0ab75/test_coverage)](https://codeclimate.com/github/Befeepilf/react-canvas-animation/test_coverage)
 
 ## Package structure
 
