@@ -79,16 +79,25 @@ describe("Vector", () => {
     });
 
     it("Computes its angle", () => {
-        const x = parseInt(10 * Math.random()) - 5;
-        const y = parseInt(10 * Math.random()) - 5;
-        const v = new Vector(x, y);
-
-        let expectedAngle = Math.acos(x / Math.sqrt(x * x + y * y));
-        if(y > 0) {
-            expectedAngle = 2 * Math.PI - expectedAngle;
-        }
-
-        expect(v.angle()).toEqual(expectedAngle);
+        [
+            [10, 10],
+            [-5, -7],
+            [3, -9],
+            [-6, 21],
+            [0, 5],
+            [0, -17],
+            [3, 0],
+            [-12, 0]
+        ].forEach(([x, y]) => {
+            const v = new Vector(x, y);
+    
+            let expectedAngle = Math.acos(x / Math.sqrt(x * x + y * y));
+            if(y > 0) {
+                expectedAngle = 2 * Math.PI - expectedAngle;
+            }
+    
+            expect(v.angle()).toEqual(expectedAngle);
+        });
     });
 
     it("Magnitude can be set", () => {

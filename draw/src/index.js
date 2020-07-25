@@ -75,6 +75,8 @@ addToProto('triangle', function(x1, y1, x2, y2, x3, y3) {
   this.ctx.beginPath();
 
   // if only 3 arguments are present
+  // (x1, y1) = coordinate of the center of triangle's base
+  // x2 = side length
   if(y2 === undefined && x3 === undefined && y3 === undefined) {
     this.ctx.moveTo(x1, y1);
     this.ctx.lineTo(x1 + x2 / 2, y1); // right corner
