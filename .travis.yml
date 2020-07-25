@@ -4,6 +4,12 @@ node_js:
 env:
   global:
     - CC_TEST_REPORTER_ID: 398e5612cf31266c2a74f3c9c12aba91510b26bb410eee3f49cc5f44db2a05d6
+install:
+  - npm i
+  - cd core && npm i
+  - cd draw && npm i
+  - cd math && npm i
+  - cd vector && npm i
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
