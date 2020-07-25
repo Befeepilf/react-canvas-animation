@@ -6,7 +6,7 @@
   "scripts": {
     "install-sub-deps": "(cd core && npm i); (cd draw && npm i); (cd math && npm i); (cd vector && npm i)",
     "test": "./node_modules/.bin/jest",
-    "build": "./node_modules/.bin/gulp"
+    "build": "./node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",
