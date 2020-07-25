@@ -276,7 +276,7 @@ describe("Set of drawing functions", () => {
                 expect(hasDrawn).toBeTruthy();
             });
 
-            expect(container.querySelector('canvas').toDataURL()).toMatchSnapshot();
+            expect(getPixels()).toMatchSnapshot();
         });
 
         it("circle", async () => {
@@ -291,7 +291,7 @@ describe("Set of drawing functions", () => {
                 expect(hasDrawn).toBeTruthy();
             });
 
-            expect(container.querySelector('canvas').toDataURL()).toMatchSnapshot();
+            expect(getPixels()).toMatchSnapshot();
         });
 
         it("drawVector", async () => {
@@ -306,7 +306,7 @@ describe("Set of drawing functions", () => {
                 expect(hasDrawn).toBeTruthy();
             });
 
-            expect(container.querySelector('canvas').toDataURL()).toMatchSnapshot();
+            expect(getPixels()).toMatchSnapshot();
         });
 
         it("scale", async () => {
