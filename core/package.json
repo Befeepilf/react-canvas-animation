@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "A p5js inspired library for creating canvas animations in react",
   "private": false,
-  "main": "dist/index.js",
+  "main": "dist/index.jsx",
   "scripts": {
     "prepare": "./node_modules/.bin/babel src -d dist --copy-files"
   },
