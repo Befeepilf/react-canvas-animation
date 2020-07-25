@@ -6,18 +6,6 @@ export default class Canvas extends React.Component {
 
     this.sketch = props.sketch.bind(this);
 
-    // lift custom prototype functions (added through @react-canvas-animation/draw) to this and bind this
-    // such that each of these functions has access to properties that are specific to this instance of Canvas (e.g. ctx)
-    for (const p in Canvas.prototype) {
-      if (
-        typeof Canvas.prototype[p] === 'function' &&
-        Canvas.prototype.customFunctions &&
-        Canvas.prototype.customFunctions.indexOf(p) > -1
-      ) {
-        this[p] = Canvas.prototype[p].bind(this);
-      }
-    }
-
     this.state = {
       width: props.width || 0,
       height: props.height || 0,
