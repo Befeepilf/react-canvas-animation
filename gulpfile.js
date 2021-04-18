@@ -3,7 +3,7 @@ const cleaner = require('gulp-clean');
 const spawn = require('child_process').spawn;
 const fs = require('fs');
 
-const version = "0.1.3";
+const version = "0.1.4";
 const entries = ['core', 'draw', 'math', 'vector'];
 
 entries.forEach(entry => {
